@@ -1,6 +1,6 @@
-package mldn.impl;
+package mldn.dao.impl;
 import mldn.dao.EmpDAO;
-import mldn.vojo.Emp;
+import mldn.pojo.Emp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,17 +24,17 @@ public class EmpDAOImpl implements EmpDAO {
     }
 
     @Override
-    public int doCreate(Emp vo){
+    public int doCreate(Emp emp){
 
         String sql="insert into emp(empno,ename,job,hiredate,sal,comm) values (?,?,?,?,?,?)";
         try {
             this.pstmt=this.conn.prepareStatement(sql);
-            this.pstmt.setInt(1,vo.getEmpno());
-            this.pstmt.setString(2,vo.getEname());
-            this.pstmt.setString(3,vo.getJob());
-            this.pstmt.setDate(4,new java.sql.Date(vo.getHiredate().getTime()));
-            this.pstmt.setDouble(5,vo.getSal());
-            this.pstmt.setDouble(6,vo.getComm());
+            this.pstmt.setInt(1, emp.getEmpno());
+            this.pstmt.setString(2, emp.getEname());
+            this.pstmt.setString(3, emp.getJob());
+            this.pstmt.setDate(4,new java.sql.Date(emp.getHiredate().getTime()));
+            this.pstmt.setDouble(5, emp.getSal());
+            this.pstmt.setDouble(6, emp.getComm());
             return this.pstmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -43,16 +43,16 @@ public class EmpDAOImpl implements EmpDAO {
     }
 
     @Override
-    public int doUpdate(Emp vo){
+    public int doUpdate(Emp emp){
         String sql="update emp set ename=?,job=?,hiredate=?,sal=?,comm=? where empno=?";
         try {
             this.pstmt=this.conn.prepareStatement(sql);
-            this.pstmt.setString(1,vo.getEname());
-            this.pstmt.setString(2,vo.getJob());
-            this.pstmt.setDate(3,new java.sql.Date(vo.getHiredate().getTime()));
-            this.pstmt.setDouble(4,vo.getSal());
-            this.pstmt.setDouble(5,vo.getComm());
-            this.pstmt.setInt(6,vo.getEmpno());
+            this.pstmt.setString(1, emp.getEname());
+            this.pstmt.setString(2, emp.getJob());
+            this.pstmt.setDate(3,new java.sql.Date(emp.getHiredate().getTime()));
+            this.pstmt.setDouble(4, emp.getSal());
+            this.pstmt.setDouble(5, emp.getComm());
+            this.pstmt.setInt(6, emp.getEmpno());
             return this.pstmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

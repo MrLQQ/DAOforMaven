@@ -1,7 +1,7 @@
 package mldn.factory;
 
 import mldn.dao.EmpDAO;
-import mldn.impl.EmpDAOImpl;
+import mldn.dao.impl.EmpDAOImpl;
 
 import java.sql.Connection;
 

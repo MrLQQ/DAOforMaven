@@ -1,7 +1,7 @@
 package mldn.dao;
 
 
-import mldn.vojo.Emp;
+import mldn.pojo.Emp;
 
 import java.util.List;
 import java.util.Set;
@@ -13,17 +13,17 @@ import java.util.Set;
 public interface EmpDAO {
     /**
      * 实现数据的增加操作
-     * @param vo 包含了要增加数据的VO对象
+     * @param emp 包含了要增加数据的VO对象
      * @return 数据保存成功返回true，否则返回false
      */
-    int doCreate(Emp vo);
+    int doCreate(Emp emp);
 
     /**
      * 实现数据的修改操作，本次修改是根据id进行全部字段数据的修改
-     * @param vo 包含了要修改数据的信息，一定要提供有ID内容
+     * @param emp 包含了要修改数据的信息，一定要提供有ID内容
      * @return 数据修改成功返回true，否则返回false
      */
-    int doUpdate(Emp vo);
+    int doUpdate(Emp emp);
 
     /**
      * 执行数据的批量删除操作，所有要删除的数据以Set集合的形式保存

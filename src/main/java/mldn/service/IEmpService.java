@@ -1,7 +1,7 @@
 package mldn.service;
 
 
-import mldn.vojo.Emp;
+import mldn.pojo.Emp;
 
 import java.util.List;
 import java.util.Map;
@@ -17,17 +17,17 @@ public interface IEmpService {
      * 需要调用IEmpDAO.FindById()方法，判断要增加数据的id是否已经存在；
      * 如果现在要增加的数据编号不存在则调用IEmpDAO.doCreate()方法，返回操作的结果
      *
-     * @param vo 包含了要增加数据的vo对象
+     * @param emp 包含了要增加数据的vo对象
      * @return 如果增加数据的ID重复或者保存的失败返回-1，否则返回正数
      */
-    public int insert(Emp vo);
+    public int insert(Emp emp);
 
     /**
      * 实现雇员数据的修改操作，本次调用IEmpDAO.doUpdate()方法，本次修改属于全部内容的修改；
-     * @param vo 包含了要修改数据的VO对象
+     * @param emp 包含了要修改数据的VO对象
      * @return 修改成功返回正数，否则返回-1
      */
-    public int update(Emp vo);
+    public int update(Emp emp);
 
     /**
      * 执行雇员数据的删除操作，可以删除多个雇员信息，调用你IEmpDAO.doRemoveBatch方法

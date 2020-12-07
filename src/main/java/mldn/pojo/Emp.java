@@ -1,7 +1,8 @@
-package mldn.vojo;
+package mldn.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class Emp implements Serializable{
     private Integer empno;
@@ -58,6 +59,40 @@ public class Emp implements Serializable{
     public void setComm(Double comm) {
         this.comm = comm;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Emp emp = (Emp) o;
+        return Objects.equals(empno, emp.empno) && Objects.equals(ename, emp.ename) && Objects.equals(job, emp.job) && Objects.equals(hiredate, emp.hiredate) && Objects.equals(sal, emp.sal) && Objects.equals(comm, emp.comm);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empno, ename, job, hiredate, sal, comm);
+    }
+
+    @Override
+    public String toString() {
+        return "{\"Emp\":{"
+                + "\"empno\":"
+                + empno
+                + ",\"ename\":\""
+                + ename + '\"'
+                + ",\"job\":\""
+                + job + '\"'
+                + ",\"hiredate\":\""
+                + hiredate + '\"'
+                + ",\"sal\":"
+                + sal
+                + ",\"comm\":"
+                + comm
+                + "}}";
+
+    }
+
+
 }
 
 
